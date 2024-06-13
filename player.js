@@ -8,10 +8,7 @@ export default class Player {
         this.width = 50;
         this.height = 50;
 
-        this.disabled = true; 
-
-        this.direction = "null";       
-        this.pressed = false;   
+        this.disabled = true;  
     } 
 
     draw(context) {   
@@ -25,10 +22,20 @@ export default class Player {
         context.fillText("player", this.x + this.width / 2, this.y + this.height / 2);
     }
 
-    update() {
-
+    update(deltaTime) {
         if (!this.disabled) {
-            if (this.x + this.height < canvas.width) this.x += 2;
+            if (this.x + this.height < canvas.width - 2) {
+                this.x += 500 * deltaTime;    // new deltaTime shit being implemented.
+            }
         }
     }
+
+    // update() {
+    //     if (!this.disabled) {
+    //         if (this.x + this.height < canvas.width) {
+    //             this.x += 2;
+    //         }
+    //     }
+    // }
+    
 }
